@@ -58,7 +58,7 @@ tools:context=".EnterFragment">
     android:layout_height="40dp"
     android:layout_marginTop="16dp"
     android:fontFamily="sans-serif"
-    android:text="Y(1)/N(0)"
+    android:text="(Y/N)"
     android:textColor="#0F235D"
     android:textSize="30dp"
     android:textStyle="italic"
@@ -146,19 +146,19 @@ tools:context=".EnterFragment">
     app:layout_constraintTop_toTopOf="parent"
     app:layout_constraintVertical_bias="0.161" />
 
-<EditText
-    android:id="@+id/editText6"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="16dp"
-    android:ems="9"
-    android:inputType="number"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.192"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/editText4"
-    app:layout_constraintVertical_bias="0.314" />
+    <EditText
+        android:id="@+id/editText6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="9"
+        android:inputType="textShortMessage"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.192"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText4"
+        app:layout_constraintVertical_bias="0.314" />
 
 <EditText
     android:id="@+id/editText3"

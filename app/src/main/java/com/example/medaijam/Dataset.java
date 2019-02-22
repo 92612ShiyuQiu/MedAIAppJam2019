@@ -57,6 +57,23 @@ public class Dataset {
         }
     }
 
+    public static class percentageMAP{
+        private List<Double> pmap = new ArrayList();
+        public void addPMAP(double initmap, double finalmap){
+            double i = (finalmap-initmap)/initmap;
+            pmap.add(i*100);
+        }
+        public List<Double> wantPMAP(){return pmap;}
+    }
+    public static class percentageHR{
+        private List<Double> phr = new ArrayList();
+        public void addPHR(double inithr, double finalhr){
+            double i = (finalhr-inithr)/inithr;
+            phr.add(i*100);
+        }
+        public List<Double> wantPHR(){return phr;}
+    }
+
     /*public static void main(String[] args){
         getSBP ta = new getSBP();
         for (int i = 0; i <13; i++) {

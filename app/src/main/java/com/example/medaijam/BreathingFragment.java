@@ -29,7 +29,7 @@ public class BreathingFragment extends Fragment{
         createScatterPlot();
 
         mScatterPlot.getViewport().setMinX(0.0);
-        mScatterPlot.getViewport().setMaxX(13.0);
+        mScatterPlot.getViewport().setMaxX(24.0);
         mScatterPlot.getViewport().setMinY(0.0);
         mScatterPlot.getViewport().setMaxY(2.0);
 
@@ -47,5 +47,7 @@ public class BreathingFragment extends Fragment{
             double y = i.wantIR().get(j);
             xySeries.appendData(new DataPoint(x,y), true, 100);
         }
+        mScatterPlot.addSeries(xySeries);
+        xySeries.setShape(PointsGraphSeries.Shape.POINT);
     }
 }

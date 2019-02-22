@@ -25,6 +25,8 @@ public class EnterFragment extends Fragment{
     static Dataset.getMAP m = new Dataset.getMAP();
     static Dataset.getHR h = new Dataset.getHR();
     static Dataset.getIR i = new Dataset.getIR();
+    static Dataset.percentageMAP pm = new Dataset.percentageMAP();
+    static Dataset.percentageHR ph = new Dataset.percentageHR();
 
 
     @Nullable
@@ -71,14 +73,35 @@ public class EnterFragment extends Fragment{
         String hR = hr.getText().toString();
         h.addHR(Integer.parseInt(hR));
         String iR = ir.getText().toString();
-        i.addIR(Integer.parseInt(iR));
+        char temp = iR.charAt(0);
+        int int_iR;
+        if(temp == 'y' | temp == 'Y'){
+            int_iR = 1;
+        }else{
+            int_iR = 0;
+        }
+        i.addIR(int_iR);
         m.addMAP(Integer.parseInt(sBP), Integer.parseInt(dBP));
+        pm.addPMAP(m.wantMAP().get(0), m.wantMAP().get(m.wantMAP().size()-1));
+        ph.addPHR(h.wantHR().get(0), h.wantHR().get(h.wantHR().size()-1));
 
         System.out.println(EnterFragment.s.wantSBP());
         System.out.println(EnterFragment.d.wantDBP());
         System.out.println(EnterFragment.h.wantHR());
         System.out.println(EnterFragment.i.wantIR());
         System.out.println(EnterFragment.m.wantMAP());
+
+        double[] input_data = {Double.parseDouble(sBP),
+                                Double.parseDouble(dBP),
+                                pm.wantPMAP().get(pm.wantPMAP().size()-1),
+                                ph.wantPHR().get(ph.wantPHR().size()-1),
+                                (double)(int_iR)};
+
+        int result = RandomForestClassifier.predict(input_data);
+
+        if (result == 1) {
+            ShowPopup();
+        }
 
     }
 }
